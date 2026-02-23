@@ -14,7 +14,7 @@ import {
 // --- Constants ---
 const INITIAL_CITIES_COUNT = 6;
 const EXPLOSION_SPEED = 1.5;
-const EXPLOSION_MAX_RADIUS = 40;
+const EXPLOSION_MAX_RADIUS = 50;
 const ROCKET_SCORE = 20;
 const WIN_SCORE = 1000;
 
@@ -107,7 +107,7 @@ export default function App() {
 
     const target = activeTargets[Math.floor(Math.random() * activeTargets.length)];
     const startX = Math.random() * GAME_WIDTH;
-    const speed = 0.5 + (round * 0.1);
+    const speed = 0.3 + (round * 0.05);
 
     rocketsRef.current.push({
       id: `rocket-${Date.now()}-${Math.random()}`,
@@ -146,7 +146,7 @@ export default function App() {
       targetX,
       targetY,
       progress: 0,
-      speed: 4 / 1000,
+      speed: 5 / 1000,
     });
   };
 
@@ -158,7 +158,7 @@ export default function App() {
     lastTimeRef.current = time;
 
     // 1. Spawn Rockets
-    if (Math.random() < 0.01 + (round * 0.005)) {
+    if (Math.random() < 0.008 + (round * 0.004)) {
       spawnRocket();
     }
 
